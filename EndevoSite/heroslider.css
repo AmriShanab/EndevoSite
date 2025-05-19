@@ -1,0 +1,224 @@
+/* Full Width Hero Slider */
+.fullwidth-hero-slider {
+    position: relative;
+    height: 100vh;
+    min-height: 800px;
+    overflow: hidden;
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 8s ease-out;
+    transform: scale(1);
+    z-index: 1;
+}
+
+.carousel-item.active .slide-background {
+    transform: scale(1.05);
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    z-index: 2;
+}
+
+.slide-content-wrapper {
+    display: flex;
+    height: 100vh;
+    min-height: 800px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.static-welcome-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.welcome-box {
+    pointer-events: auto;
+    width: 60%;
+    max-width: 700px;
+    background: rgba(31, 31, 46, 0.9);
+    backdrop-filter: blur(12px);
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+.carousel-item.active .welcome-box {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.brand-marker {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.brand-shape {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 80px;
+    height: 80px;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.pre-title {
+    display: block;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 10px;
+}
+
+.brand-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 20px 0;
+    line-height: 1;
+    background: linear-gradient(135deg, #8B5CF6, #4F46E5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.intro-text {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.intro-text strong {
+    color: white;
+    font-weight: 600;
+}
+
+.hero-cta .btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.hero-cta .btn-primary {
+    background: linear-gradient(135deg, #4F46E5, #8B5CF6);
+    border: none;
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+}
+
+.hero-cta .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+}
+
+.hero-cta .btn-outline {
+    border: 2px solid #4F46E5;
+    color: #4F46E5;
+    background: transparent;
+}
+
+.slide-caption {
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    transform: translateX(20px);
+    opacity: 0;
+    transition: all 0.6s ease 0.3s;
+}
+
+.carousel-item.active .slide-caption {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.slide-caption h3 {
+    color: #1f1f2e;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.slide-caption p {
+    color: #6c757d;
+    margin: 0;
+}
+
+.carousel-controls {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199px) {
+    .welcome-box {
+        width: 50%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 991px) {
+    .slide-content-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 100px;
+    }
+    
+    .welcome-box, .slide-caption {
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 30px;
+    }
+    
+    .slide-caption {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .fullwidth-hero-slider {
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .welcome-box {
+        padding: 25px;
+    }
+    
+    .brand-name {
+        font-size: 2rem;
+    }
+    
+    .intro-text {
+        font-size: 1rem;
+    }
+}

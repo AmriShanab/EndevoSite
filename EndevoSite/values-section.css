@@ -1,0 +1,201 @@
+/* Values Section Styles */
+.values-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-intro {
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f1f2e;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #1c2e4a, #8B5CF6);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    color: #6c757d;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.value-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(58, 54, 131, 0.9) 0%, rgba(139, 92, 246, 0.9) 100%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.value-icon i {
+    font-size: 2rem;
+    color: #1c2e4a;
+    transition: all 0.4s ease;
+}
+
+.value-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1f1f2e;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.value-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #1c2e4a;
+    transition: all 0.4s ease;
+}
+
+.value-content {
+    color: #6c757d;
+    transition: all 0.4s ease;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transform: translateY(20px);
+}
+
+/* Hover/Active States */
+.value-card:hover,
+.value-card.active {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
+}
+
+.value-card:hover .value-overlay,
+.value-card.active .value-overlay {
+    opacity: 1;
+}
+
+.value-card:hover .value-icon,
+.value-card.active .value-icon {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.value-card:hover .value-icon i,
+.value-card.active .value-icon i {
+    color: #fff;
+}
+
+.value-card:hover .value-title,
+.value-card.active .value-title {
+    color: #fff;
+}
+
+.value-card:hover .value-title::after,
+.value-card.active .value-title::after {
+    background: #fff;
+    width: 60px;
+}
+
+.value-card:hover .value-content,
+.value-card.active .value-content {
+    opacity: 1;
+    height: auto;
+    transform: translateY(0);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .value-card {
+        padding: 25px;
+        min-height: 250px;
+    }
+    
+    .value-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .value-title {
+        font-size: 1.3rem;
+    }
+    
+    .value-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .value-icon i {
+        font-size: 1.8rem;
+    }
+}
