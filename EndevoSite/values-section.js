@@ -76,3 +76,82 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(rotateActiveCard, 5000);
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Counter animation for stats
+  const statNumbers = document.querySelectorAll('.stat-number');
+  
+  statNumbers.forEach(stat => {
+    const target = parseInt(stat.getAttribute('data-count'));
+    const suffix = stat.textContent.includes('%') ? '%' : '';
+    let count = 0;
+    const duration = 2000; // Animation duration in ms
+    const increment = target / (duration / 16); // 60fps
+    
+    const updateCount = () => {
+      count += increment;
+      if (count < target) {
+        stat.textContent = Math.floor(count) + suffix;
+        requestAnimationFrame(updateCount);
+      } else {
+        stat.textContent = target + suffix;
+      }
+    };
+    
+    // Start counting when element is in viewport
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        updateCount();
+        observer.unobserve(stat);
+      }
+    });
+    
+    observer.observe(stat);
+  });
+  
+  // Tech item hover effects with GSAP
+  const techItems = document.querySelectorAll('.tech-item');
+  
+  techItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      gsap.to(item, {
+        y: -10,
+        rotateX: 5,
+        boxShadow: '0 15px 40px rgba(79, 70, 229, 0.15)',
+        duration: 0.4,
+        ease: "power2.out"
+      });
+      gsap.to(item.querySelector('img'), {
+        scale: 1.1,
+        filter: 'grayscale(0%)',
+        duration: 0.3
+      });
+      gsap.to(item.querySelector('.tech-tooltip'), {
+        opacity: 1,
+        y: 15,
+        duration: 0.3
+      });
+    });
+    
+    item.addEventListener('mouseleave', () => {
+      gsap.to(item, {
+        y: 0,
+        rotateX: 0,
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.05)',
+        duration: 0.4,
+        ease: "power2.out"
+      });
+      gsap.to(item.querySelector('img'), {
+        scale: 1,
+        filter: 'grayscale(30%)',
+        duration: 0.3
+      });
+      gsap.to(item.querySelector('.tech-tooltip'), {
+        opacity: 0,
+        y: 0,
+        duration: 0.3
+      });
+    });
+  });
+});

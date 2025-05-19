@@ -1,0 +1,249 @@
+/* Client Testimonials Section */
+.client-testimonials {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f1f2e;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #4F46E5, #8B5CF6);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    color: #6c757d;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+/* Testimonial Tree */
+.testimonial-tree {
+    position: relative;
+    height: 500px;
+    margin-top: 80px;
+}
+
+.branch-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.branch-path {
+    stroke: #4F46E5;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawBranch 3s ease-out forwards;
+}
+
+@keyframes drawBranch {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Testimonial Leaves */
+.testimonial-leaf {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.testimonial-leaf:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.user-avatar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.leaf-shape {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(79, 70, 229, 0.1);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(45deg);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.testimonial-leaf:hover .leaf-shape {
+    background: rgba(79, 70, 229, 0.2);
+    transform: rotate(45deg) scale(1.1);
+}
+
+/* Testimonial Messages */
+.testimonial-message {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 3;
+}
+
+.testimonial-message.active {
+    opacity: 1;
+    visibility: visible;
+    bottom: -50px;
+}
+
+.message-bubble {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.message-bubble::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.message-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.user-info h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1f1f2e;
+}
+
+.user-info p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.rating {
+    margin-left: auto;
+    color: #FFD700;
+    font-size: 0.9rem;
+}
+
+.message-content {
+    color: #6c757d;
+    line-height: 1.7;
+}
+
+.message-content p {
+    margin-bottom: 15px;
+}
+
+.message-time {
+    font-size: 0.8rem;
+    color: #adb5bd;
+    text-align: right;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .testimonial-tree {
+        height: 400px;
+    }
+    
+    .testimonial-leaf {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .testimonial-message {
+        bottom: -150px;
+    }
+    
+    .testimonial-message.active {
+        bottom: -100px;
+    }
+}
+
+@media (max-width: 767px) {
+    .client-testimonials {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .testimonial-tree {
+        height: 300px;
+        margin-top: 50px;
+    }
+    
+    .testimonial-leaf {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .message-bubble {
+        padding: 20px;
+    }
+}

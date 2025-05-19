@@ -51,17 +51,24 @@
 
 .welcome-box {
     pointer-events: auto;
-    width: 60%;
-    max-width: 700px;
+    width: 90%;
+    max-width: 1200px;
     background: rgba(31, 31, 46, 0.9);
-    backdrop-filter: blur(12px);
-    padding: 50px;
+    backdrop-filter: blur(8px);
+    padding: 40px 20px 40px 20px;
     border-radius: 16px;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.15);
     opacity: 1;
     transform: none;
     transition: none;
+    text-align: center !important;
+    margin-left: 40px;
+}
+
+.welcome-box-container {
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px;
 }
 
 .carousel-item.active .welcome-box {
